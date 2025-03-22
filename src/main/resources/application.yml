@@ -1,0 +1,17 @@
+server:
+  port: 8080
+spring:
+  datasource:
+    url: jdbc:mysql://1.94.147.176/wms-pro?createDatabaseIfNotExist=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai&zeroDateTimeBehavior=convertToNull&allowPublicKeyRetrieval=true
+    username: root
+    password: kjiolluy711
+  redis:
+    database: 0
+    host: 1.94.147.176
+    port: 6379
+    password: kjiolluy711
+logging:
+  level:
+    com.hzx.lesson: debug
+  file:
+    name: logs/app.log
