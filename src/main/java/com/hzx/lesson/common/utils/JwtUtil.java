@@ -11,6 +11,10 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * @author zexiao.huang
+ * @since 2025/3/23 下午4:11
+ */
 @Component
 public class JwtUtil {
 

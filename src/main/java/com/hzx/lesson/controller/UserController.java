@@ -1,74 +1,50 @@
 package com.hzx.lesson.controller;
 
-import com.hzx.lesson.common.config.CacheConfig;
-import com.hzx.lesson.common.utils.JwtUtil;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.data.redis.core.RedisTemplate;
+import com.hzx.lesson.common.result.Result;
+import com.hzx.lesson.model.dto.RegisterDTO;
+import com.hzx.lesson.model.dto.TokenDTO;
+import com.hzx.lesson.model.dto.UserDTO;
+import com.hzx.lesson.model.vo.UserVO;
+import com.hzx.lesson.service.UserService;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import javax.annotation.Resource;
-import java.util.concurrent.TimeUnit;
 
 /**
  * 用户登录
  * @author zexiao.huang
- * @date 2025/3/23 下午3:33
+ * @since 2025/3/23 下午3:33
  */
 @RestController
 @RequestMapping("/user")
+@RequiredArgsConstructor(onConstructor = @__(@Autowired))
+@Slf4j
 public class UserController {
 
-    private static final Logger logger = LoggerFactory.getLogger(CacheConfig.class);
+    private final UserService userService;
 
-    @Resource
-    private JwtUtil jwtUtil;
-
-    @Resource
-    private RedisTemplate<String, Object> redisTemplate;
-
+    @PostMapping("/register")
+    public Result<?> register(@RequestBody RegisterDTO registerDTO) {
+        userService.register(registerDTO.getUserName(), registerDTO.getPassword());
+        return Result.success("注册成功");
+    }
 
 
     @PostMapping("/login")
-    public String login(@RequestParam String username, @RequestParam String password) {
-        if (!("admin".equals(username) && "123".equals(password))) {
-            throw new RuntimeException("用户名或密码错误");
-        }
-
-        Long userId = 666L;
-        String token = jwtUtil.generateToken(userId, username);
-        logger.info(token);
-
-        redisTemplate.opsForValue().set("token:" + userId, token, 10, TimeUnit.MINUTES);
-        return token;
+    public Result<TokenDTO> login(@RequestBody UserDTO userDTO) {
+        TokenDTO tokenDTO = userService.login(userDTO);
+        return Result.success(tokenDTO);
     }
 
-    @GetMapping("/profile")
-    public String profile(@RequestHeader("Authorization") String token) {
-        if (!jwtUtil.validateToken(token)) {
-            throw new RuntimeException("Token 验证失败");
-        }
-
-        Long userId = jwtUtil.getUserIdFromToken(token);
-        String username = jwtUtil.getUsernameFromToken(token);
-        // 从 Redis 中读取 token 进行验证
-        String storedToken = (String) redisTemplate.opsForValue().get("token:" + userId);
-        if (storedToken == null || !storedToken.equals(token)) {
-            throw new RuntimeException("Token mismatch");
-        }
-        logger.info("Profile of user: {} with ID: {}", username, userId);
-        return "Profile of user: " + username + " with ID: " + userId;
+    @PostMapping("/info")
+    public Result<UserVO> info() {
+        return Result.success(userService.info());
     }
 
     @DeleteMapping("/logout")
-    public boolean logout(@RequestParam Long userId) {
-        try {
-            redisTemplate.delete("token:" + userId.toString());
-            logger.info("用户：{} 登出成功！", userId);
-            return true;
-        } catch (Exception e) {
-            logger.info("用户：{} 登出失败！", userId);
-            return false;
-        }
+    public Result<Boolean> logout() {
+        userService.logout();
+        return Result.success(true);
     }
 }

@@ -1,8 +1,9 @@
 server:
   port: 8080
+
 spring:
   datasource:
-    url: jdbc:mysql://1.94.147.176/wms-pro?createDatabaseIfNotExist=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai&zeroDateTimeBehavior=convertToNull&allowPublicKeyRetrieval=true
+    url: jdbc:mysql://1.94.147.176/classroom?createDatabaseIfNotExist=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai&zeroDateTimeBehavior=convertToNull&allowPublicKeyRetrieval=true
     username: root
     password: kjiolluy711
   redis:
@@ -10,12 +11,30 @@ spring:
     host: 1.94.147.176
     port: 6379
     password: kjiolluy711
+  session:
+    store-type: redis
+
+
+mybatis-plus:
+  mapper-locations: classpath*:mapper/*.xml
+  type-aliases-package: com.hzx.lesson.entity  # 设置别名包扫描路径，通过该属性可以给包中的类注册别名
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl #开启sql日志
+    map-underscore-to-camel-case: true  # 将带有下划线的表字段映射为驼峰格式的实体类属性
+  global-config:
+    db-config:
+      id-type: auto
+      logic-delete-field: deleted  # 全局逻辑删除的实体字段名
+      logic-not-delete-value: 0    # 逻辑未删除值(默认为 0)
+      logic-delete-value: 1        # 逻辑已删除值(默认为 1)
+
 logging:
   level:
-    com.hzx.lesson: debug
+    com.hzx.lesson: info
   file:
     name: logs/app.log
+
 jwt:
   secret-key: hzx_secret_key  # 设置jwt签名加密时使用的秘钥
   ttl: 7200000                # 设置jwt过期时间
-  token-name: token           # 设置前端传递过来的令牌名称
+  token-name: authorization   # 设置前端传递过来的令牌名称
