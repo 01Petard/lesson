@@ -2,7 +2,6 @@ package com.hzx.lesson.controller;
 
 import com.hzx.lesson.common.config.CacheConfig;
 import com.hzx.lesson.common.utils.JwtUtil;
-import lombok.Data;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -11,6 +10,11 @@ import org.springframework.web.bind.annotation.*;
 import javax.annotation.Resource;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * 用户登录
+ * @author zexiao.huang
+ * @date 2025/3/23 下午3:33
+ */
 @RestController
 @RequestMapping("/user")
 public class UserController {
@@ -23,17 +27,11 @@ public class UserController {
     @Resource
     private RedisTemplate<String, Object> redisTemplate;
 
-    @Data
-    static public class User {
-        private Long userId;
-        private String username;
-        private String password;
 
-    }
 
     @PostMapping("/login")
     public String login(@RequestParam String username, @RequestParam String password) {
-        if (!("admin".equals(username) && "123".equals(password)) ){
+        if (!("admin".equals(username) && "123".equals(password))) {
             throw new RuntimeException("用户名或密码错误");
         }
 
@@ -41,7 +39,6 @@ public class UserController {
         String token = jwtUtil.generateToken(userId, username);
         logger.info(token);
 
-        // 将 token 存储到 Redis 中，key 为 "token:<username>"
         redisTemplate.opsForValue().set("token:" + userId, token, 10, TimeUnit.MINUTES);
         return token;
     }
@@ -49,12 +46,11 @@ public class UserController {
     @GetMapping("/profile")
     public String profile(@RequestHeader("Authorization") String token) {
         if (!jwtUtil.validateToken(token)) {
-            throw new RuntimeException("token验证失败");
+            throw new RuntimeException("Token 验证失败");
         }
 
         Long userId = jwtUtil.getUserIdFromToken(token);
         String username = jwtUtil.getUsernameFromToken(token);
-
         // 从 Redis 中读取 token 进行验证
         String storedToken = (String) redisTemplate.opsForValue().get("token:" + userId);
         if (storedToken == null || !storedToken.equals(token)) {
@@ -70,7 +66,7 @@ public class UserController {
             redisTemplate.delete("token:" + userId.toString());
             logger.info("用户：{} 登出成功！", userId);
             return true;
-        }catch (Exception e){
+        } catch (Exception e) {
             logger.info("用户：{} 登出失败！", userId);
             return false;
         }
