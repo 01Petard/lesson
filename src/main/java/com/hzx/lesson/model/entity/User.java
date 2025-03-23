@@ -1,9 +1,9 @@
 package com.hzx.lesson.model.entity;
 
 import com.baomidou.mybatisplus.annotation.*;
-import lombok.Builder;
 import lombok.Data;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -12,7 +12,7 @@ import java.util.Date;
  */
 @Data
 @TableName("user")
-public class User {
+public class User  implements Serializable {
     /**
      * 用户id
      */
