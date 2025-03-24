@@ -10,6 +10,10 @@ import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.data.redis.serializer.GenericJackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 
+/**
+ * @author zexiao.huang
+ * @since 2025/3/22
+ */
 @Configuration
 public class CacheConfig {
 
@@ -27,13 +31,6 @@ public class CacheConfig {
         template.setHashValueSerializer(new GenericJackson2JsonRedisSerializer());
 
         logger.info("RedisTemplate configured successfully.");
-        return template;
-    }
-
-    @Bean
-    public StringRedisTemplate stringRedisTemplate(RedisConnectionFactory redisConnectionFactory) {
-        StringRedisTemplate template = new StringRedisTemplate(redisConnectionFactory);
-        logger.info("StringRedisTemplate configured successfully.");
         return template;
     }
 }

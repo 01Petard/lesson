@@ -69,7 +69,7 @@ public class UserServiceImpl implements UserService {
         redisTemplate.opsForValue().set(
                 "token:" + user.getUserId(),
                 token,
-                10, TimeUnit.MINUTES
+                30, TimeUnit.DAYS
         );
 
         // 4. 修改登录时间

@@ -1,4 +1,4 @@
-package com.hzx.lesson.common.interceptor;
+package com.hzx.lesson.common.config.interceptor;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;

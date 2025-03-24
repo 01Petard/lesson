@@ -14,9 +14,10 @@ public enum ErrorCode {
     // 业务级错误 2xxx
     USER_EXISTS(2001, "用户已存在"),
     USER_NOT_EXISTS(2002, "用户不存在"),
-    TOKEN_EXPIRED(2003, "token已过期"),
-    PASSWORD_ERROR(2004, "密码错误"),
-    USER_NOT_LOGIN(2005, "用户未登录"),
+    TOKEN_INVALID(2003, "未找到有效的JWT令牌"),
+    TOKEN_EXPIRED(2004, "JWT令牌已过期"),
+    PASSWORD_ERROR(2005, "密码错误"),
+    USER_NOT_LOGIN(2006, "用户未登录"),
 
     // 第三方服务错误 3xxx
     PAYMENT_FAILED(3001,"支付失败");

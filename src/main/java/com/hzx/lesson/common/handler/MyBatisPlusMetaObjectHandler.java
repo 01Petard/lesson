@@ -11,7 +11,7 @@ import java.util.Date;
  * @since 2025/3/23 下午8:42
  */
 @Component
-public class MyMetaObjectHandler implements MetaObjectHandler {
+public class MyBatisPlusMetaObjectHandler implements MetaObjectHandler {
     @Override
     public void insertFill(MetaObject metaObject) {
         // 自动填充插入时间

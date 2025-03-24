@@ -1,6 +1,7 @@
 package com.hzx.lesson.common.config;
 
 import com.hzx.lesson.common.config.security.JwtAuthenticationFilter;
+import com.hzx.lesson.common.constant.SecurityConstants;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -38,10 +39,7 @@ public class SecurityConfig {
                 // 配置开放的接口和其他需认证的接口
                 .and()
                 .authorizeRequests()
-                .antMatchers(
-                        "/user/login",
-                        "/user/register",
-                        "/test/**").permitAll()
+                .antMatchers(SecurityConstants.PUBLIC_PATTERNS).permitAll()
                 .anyRequest().authenticated()
 
                 // 添加JWT过滤器
