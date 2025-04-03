@@ -37,13 +37,12 @@ public class HttpUtils {
      * get
      * @param host
      * @param path
-     * @param method
      * @param headers
      * @param querys
      * @return
      * @throws Exception
      */
-    public static HttpResponse doGet(String host, String path, String method,
+    public static HttpResponse doGet(String host, String path,
                                      Map<String, String> headers,
                                      Map<String, String> querys)
             throws Exception {
@@ -61,14 +60,13 @@ public class HttpUtils {
      * post form
      * @param host
      * @param path
-     * @param method
      * @param headers
      * @param querys
      * @param bodys
      * @return
      * @throws Exception
      */
-    public static HttpResponse doPost(String host, String path, String method,
+    public static HttpResponse doPost(String host, String path,
                                       Map<String, String> headers,
                                       Map<String, String> querys,
                                       Map<String, String> bodys)
@@ -98,14 +96,13 @@ public class HttpUtils {
      * Post String
      * @param host
      * @param path
-     * @param method
      * @param headers
      * @param querys
      * @param body
      * @return
      * @throws Exception
      */
-    public static HttpResponse doPost(String host, String path, String method,
+    public static HttpResponse doPost(String host, String path,
                                       Map<String, String> headers,
                                       Map<String, String> querys,
                                       String body)
@@ -128,14 +125,13 @@ public class HttpUtils {
      * Post stream
      * @param host
      * @param path
-     * @param method
      * @param headers
      * @param querys
      * @param body
      * @return
      * @throws Exception
      */
-    public static HttpResponse doPost(String host, String path, String method,
+    public static HttpResponse doPost(String host, String path,
                                       Map<String, String> headers,
                                       Map<String, String> querys,
                                       byte[] body)
@@ -158,14 +154,13 @@ public class HttpUtils {
      * Put String
      * @param host
      * @param path
-     * @param method
      * @param headers
      * @param querys
      * @param body
      * @return
      * @throws Exception
      */
-    public static HttpResponse doPut(String host, String path, String method,
+    public static HttpResponse doPut(String host, String path,
                                      Map<String, String> headers,
                                      Map<String, String> querys,
                                      String body)
@@ -188,14 +183,13 @@ public class HttpUtils {
      * Put stream
      * @param host
      * @param path
-     * @param method
      * @param headers
      * @param querys
      * @param body
      * @return
      * @throws Exception
      */
-    public static HttpResponse doPut(String host, String path, String method,
+    public static HttpResponse doPut(String host, String path,
                                      Map<String, String> headers,
                                      Map<String, String> querys,
                                      byte[] body)
@@ -218,13 +212,12 @@ public class HttpUtils {
      * Delete
      * @param host
      * @param path
-     * @param method
      * @param headers
      * @param querys
      * @return
      * @throws Exception
      */
-    public static HttpResponse doDelete(String host, String path, String method,
+    public static HttpResponse doDelete(String host, String path,
                                         Map<String, String> headers,
                                         Map<String, String> querys)
             throws Exception {

@@ -20,6 +20,12 @@ public class ModelRequest {
      * 发送给模型的prompt
      */
     private List<MessageBO> messages;
+
+    @Data
+    public static class MessageBO {
+        private String role;
+        private String content;
+    }
     /**
      * 是否流式返回
      */
@@ -28,21 +34,5 @@ public class ModelRequest {
      * 控制生成文本的随机性（0 表示确定性最高，1 表示更随机）
      */
     private double temperature;
-    /**
-     * 限制生成的最大 token 数量
-     */
-    private int maxTokens;
-    /**
-     * 控制采样策略，只保留累积概率达到 top_p 的候选词
-     */
-    private double topP;
-    /**
-     * 生成的回复数量
-     */
-    private int n;
-    /**
-     * 指定停止生成的字符串或标记
-     */
-    private boolean stop;
 
 }
