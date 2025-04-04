@@ -135,8 +135,9 @@ class ChatTests {
 
         // 4. 解析响应
         DeepSeekResponse deepSeekResponse = parseResponse(response.getEntity(), objectMapper, DeepSeekResponse.class);
-        System.out.println("DeepSeek Response Status: " + response.getStatusLine());
-        System.out.println("DeepSeek Response Body: " + deepSeekResponse.toString());
+        System.out.println("Response Status: " + response.getStatusLine());
+        System.out.println("Response Body: " + deepSeekResponse.toString());
+        System.out.println("AI's Response: " + deepSeekResponse.getChoices().get(0).getMessage().getContent());
 
     }
 
