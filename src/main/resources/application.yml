@@ -38,3 +38,20 @@ jwt:
   secret-key: hzx_secret_key  # 设置jwt签名加密时使用的秘钥
   ttl: 2592000000             # 设置jwt过期时间为 30 天
   token-name: authorization   # 设置前端传递过来的令牌名称
+
+
+ai:
+  configs:
+    ollama_1:
+      host: "http://localhost:11434"
+      path: "/api/chat"
+      model: "deepseek-r1:1.5b"
+    ollama_2:
+      host: "http://localhost:11434"
+      path: "/api/chat"
+      model: "qwen-2.5:0.5b"
+    deepseek:
+      host: "https://api.deepseek.com"
+      path: "/v1/chat/completions"
+      model: "deepseek-chat"
+      api-key: "sk-3590a0531ce64285be4d35a4eb742225"

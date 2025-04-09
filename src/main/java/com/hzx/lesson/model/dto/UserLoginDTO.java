@@ -4,10 +4,10 @@ import lombok.Data;
 
 /**
  * @author zexiao.huang
- * @since 2025/3/23 下午7:04
+ * @since 2025/3/23 下午4:16
  */
 @Data
-public class RegisterDTO {
+public class UserLoginDTO {
     private String userName;
     private String password;
 }

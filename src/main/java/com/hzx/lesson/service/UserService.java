@@ -1,8 +1,8 @@
 package com.hzx.lesson.service;
 
-import com.hzx.lesson.model.dto.TokenDTO;
-import com.hzx.lesson.model.dto.UserDTO;
-import com.hzx.lesson.model.vo.UserVO;
+import com.hzx.lesson.model.vo.UserLoginVO;
+import com.hzx.lesson.model.dto.UserLoginDTO;
+import com.hzx.lesson.model.vo.UserInfoVO;
 
 /**
  * @author zexiao.huang
@@ -19,16 +19,16 @@ public interface UserService {
 
     /**
      * 登录
-     * @param userDTO
+     * @param userLoginDTO
      * @return
      */
-    TokenDTO login(UserDTO userDTO);
+    UserLoginVO login(UserLoginDTO userLoginDTO);
 
     /**
      * 获取用户信息
      * @return
      */
-    UserVO info();
+    UserInfoVO info();
 
     /**
      * 退出登录

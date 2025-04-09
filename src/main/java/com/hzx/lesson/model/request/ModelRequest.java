@@ -1,6 +1,9 @@
-package com.hzx.lesson.model.entity;
+package com.hzx.lesson.model.request;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 
 import java.util.List;
 
@@ -9,7 +12,6 @@ import java.util.List;
  * @author zexiao.huang
  * @since 2025/4/3 下午3:13
  */
-
 @Data
 public class ModelRequest {
     /**
@@ -22,6 +24,8 @@ public class ModelRequest {
     private List<MessageBO> messages;
 
     @Data
+    @AllArgsConstructor
+    @NoArgsConstructor
     public static class MessageBO {
         private String role;
         private String content;

@@ -1,6 +1,7 @@
-package com.hzx.lesson.model.entity;
+package com.hzx.lesson.model.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.hzx.lesson.model.request.ModelRequest;
 import lombok.Data;
 
 /**
