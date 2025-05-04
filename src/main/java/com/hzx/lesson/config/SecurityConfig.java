@@ -1,6 +1,6 @@
-package com.hzx.lesson.common.config;
+package com.hzx.lesson.config;
 
-import com.hzx.lesson.common.config.security.JwtAuthenticationFilter;
+import com.hzx.lesson.config.security.JwtAuthenticationFilter;
 import com.hzx.lesson.common.constant.SecurityConstants;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;

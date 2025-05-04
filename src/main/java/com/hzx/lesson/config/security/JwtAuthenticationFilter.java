@@ -1,4 +1,4 @@
-package com.hzx.lesson.common.config.security;
+package com.hzx.lesson.config.security;
 
 import com.hzx.lesson.common.constant.SecurityConstants;
 import com.hzx.lesson.common.enums.ErrorCode;
@@ -8,9 +8,7 @@ import com.hzx.lesson.common.utils.JwtUtil;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;

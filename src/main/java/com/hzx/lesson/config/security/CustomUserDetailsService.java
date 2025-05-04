@@ -1,4 +1,4 @@
-package com.hzx.lesson.common.config.security;
+package com.hzx.lesson.config.security;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.hzx.lesson.mapper.UserMapper;

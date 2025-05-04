@@ -1,6 +1,6 @@
 package com.hzx.lesson.common.utils;
 
-import com.hzx.lesson.common.config.security.CurrentUser;
+import com.hzx.lesson.config.security.CurrentUser;
 import lombok.experimental.UtilityClass;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;

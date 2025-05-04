@@ -1,6 +1,6 @@
-package com.hzx.lesson.common.config;
+package com.hzx.lesson.config;
 
-import com.hzx.lesson.common.config.interceptor.LoggerInterceptor;
+import com.hzx.lesson.config.interceptor.LoggerInterceptor;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;

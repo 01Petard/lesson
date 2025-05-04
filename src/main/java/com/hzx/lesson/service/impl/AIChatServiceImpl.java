@@ -3,7 +3,7 @@ package com.hzx.lesson.service.impl;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.hzx.lesson.common.config.AIConfig;
+import com.hzx.lesson.config.AIConfig;
 import com.hzx.lesson.common.constant.AIChatConstant;
 import com.hzx.lesson.common.enums.AIModelType;
 import com.hzx.lesson.common.enums.ErrorCode;

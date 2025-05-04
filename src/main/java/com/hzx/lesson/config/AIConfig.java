@@ -1,4 +1,4 @@
-package com.hzx.lesson.common.config;
+package com.hzx.lesson.config;
 
 import com.hzx.lesson.common.enums.AIModelType;
 import lombok.Data;

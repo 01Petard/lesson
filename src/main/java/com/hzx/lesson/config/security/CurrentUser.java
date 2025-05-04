@@ -1,4 +1,4 @@
-package com.hzx.lesson.common.config.security;
+package com.hzx.lesson.config.security;
 
 import lombok.Builder;
 import lombok.Data;
