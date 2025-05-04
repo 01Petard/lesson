@@ -19,6 +19,7 @@ import java.util.concurrent.TimeUnit;
 @RequestMapping("/test/")
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 @Slf4j
+@CrossOrigin
 public class TestController {
 
     private final RedisTemplate<String, Object> redisTemplate;
@@ -189,7 +190,7 @@ public class TestController {
 
     private void m2() {
         try {
-            Thread.sleep(10000);
+            Thread.sleep(2000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
@@ -198,7 +199,7 @@ public class TestController {
 
     private void m3() {
         try {
-            Thread.sleep(5000);
+            Thread.sleep(3000);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }

@@ -23,6 +23,7 @@ import java.util.List;
 @RequestMapping("/chat")
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 @Slf4j
+@CrossOrigin
 public class ChatExtController {
 
     private final ChatExtService chatExtService;

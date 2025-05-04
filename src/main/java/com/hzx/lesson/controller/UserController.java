@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/user")
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 @Slf4j
+@CrossOrigin
 public class UserController {
 
     private final UserService userService;
